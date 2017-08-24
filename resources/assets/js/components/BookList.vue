@@ -3,9 +3,12 @@
         <app-navbar :yours="yours"></app-navbar>
         <div class="container">
             <register-input @showEvent="show"></register-input>
-            <table class="table">
+            <table class="table table-striped table-responsive table-bordered">
                 <tr>
-                    <th>ISBN</th><th>書籍名</th><th>状態（中野図書館）</th><th></th>
+                    <th class="isbn">ISBN</th>
+                    <th class="name">書籍名</th>
+                    <th class="state">状態（中野図書館）</th>
+                    <th class="delete"></th>
                 </tr>
                 <book 
                     v-for="book in books" 
@@ -116,5 +119,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+table {
+    border-collapse: separate;
+    border-spacing: 20px;
+    border: #000;
+}
+table tr {
+    height: 60px;
+}
+table tr .name {
+    width:65%;
+}
 </style>

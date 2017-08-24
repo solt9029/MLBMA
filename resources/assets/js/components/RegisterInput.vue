@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="register">
-        <input type="number" class="form-control" v-model="isbn">
-        <input type="submit" value="register" class="btn btn-primary btn-block">
+        <input type="number" class="form-control" v-model="isbn" placeholder="ISBN（13桁）">
+        <input type="submit" value="書籍を登録する" class="btn btn-primary btn-block top-space-button">
     </form>
 </template>
 
@@ -30,5 +30,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.top-space-button {
+    margin-top:10px;
+}
 </style>

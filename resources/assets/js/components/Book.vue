@@ -1,10 +1,10 @@
 <template>
     <tr>
-        <td>{{isbn}}</td>
-        <td>{{name}}</td>
-        <td>{{state}}</td>
-        <td>
-            <button @click="del">
+        <td class="isbn">{{isbn}}</td>
+        <td class="name">{{name}}</td>
+        <td class="state">{{state}}</td>
+        <td class="delete">
+            <button @click="del" class="btn btn-warning">
                 削除
             </button>
         </td>
