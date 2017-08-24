@@ -1,6 +1,11 @@
 <template>
     <tr>
-        <td class="isbn">{{isbn}}</td>
+        <td 
+            class="isbn"
+            data-toggle="modal"
+            data-target="#modal">
+            <a>{{isbn}}</a>
+        </td>
         <td class="name">{{name}}</td>
         <td class="state">{{state}}</td>
         <td class="delete">
@@ -44,3 +49,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+a {
+    cursor: pointer;
+}
+</style>

@@ -20,6 +20,9 @@
                     @showEvent="show">
                 </book>
             </table>
+
+            <detail-modal></detail-modal>
+
             <book-list-pagination :page="page" :lastPage="lastPage" :yours="yours"></book-list-pagination>
         </div>
         <app-footer></app-footer>
@@ -32,6 +35,7 @@ import BookListPagination from './BookListPagination'
 import RegisterInput from './RegisterInput'
 import AppNavbar from './AppNavbar'
 import AppFooter from './AppFooter'
+import DetailModal from './DetailModal'
 export default {
     name: 'book-list',
     components: {
@@ -39,7 +43,8 @@ export default {
         BookListPagination,
         RegisterInput,
         AppNavbar,
-        AppFooter
+        AppFooter,
+        DetailModal
     },
     data() {
         return {

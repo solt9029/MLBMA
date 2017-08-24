@@ -31,6 +31,7 @@ Vue.component('register-input', require('./components/RegisterInput.vue'));
 Vue.component('book-list-pagination', require('./components/BookListPagination.vue'))
 Vue.component('app-navbar', require('./components/AppNavbar.vue'))
 Vue.component('app-footer', require('./components/AppFooter.vue'))
+Vue.component('detail-modal', require('./components/DetailModal.vue'))
 
 const app = new Vue({
     router,

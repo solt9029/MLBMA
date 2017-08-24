@@ -55,7 +55,7 @@ class BooksController extends Controller
     //ページネーションしながら出してほしい
     public function show(Request $request)
     {
-        $page_num = 10;
+        $page_num = 10;//ページネーションの数
 
         $books = Book::paginate($page_num);
 
