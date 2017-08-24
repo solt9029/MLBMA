@@ -55,11 +55,13 @@ class BooksController extends Controller
     //ページネーションしながら出してほしい
     public function show(Request $request)
     {
-        $books = Book::paginate(15);
+        $page_num = 10;
+
+        $books = Book::paginate($page_num);
 
         if ($request->input('yours')) {
             $user_id = Auth::user()->id;
-            $books = Book::where('user_id', $user_id)->paginate(15);
+            $books = Book::where('user_id', $user_id)->paginate($page_num);
         }
 
         return $books;
