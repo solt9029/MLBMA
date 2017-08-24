@@ -57,3 +57,8 @@ Route::post("books/state",[
     "as"=>"books.state",
     "uses"=>"BooksController@state"
 ]);
+
+Route::post("users/avatar", [
+    "as" => "users.avatar",
+    "uses" => "UsersController@avatar"
+]);

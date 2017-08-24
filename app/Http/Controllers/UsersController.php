@@ -30,4 +30,9 @@ class UsersController extends Controller
     {
         return view("index");
     }
+
+    public function avatar()
+    {
+        return Auth::user()->avatar;
+    }
 }

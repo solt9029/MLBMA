@@ -25,6 +25,9 @@
                 <form class="navbar-form navbar-right">
                     <a class="btn btn-default" href="/auth/twitter/logout">ログアウト</a>
                 </form>
+                <a class="navbar-brand navbar-right" href="#">
+                    <img :src="avatarUrl" class="img-rounded">
+                </a>
                 <form class="navbar-form navbar-right">
                     <input type="text" class="form-control" placeholder="Search">
                 </form>
@@ -41,9 +44,26 @@ export default {
             type: Boolean
         }
     },
+    data() {
+        return {
+            avatarUrl: null
+        }
+    },
+    created: function () {
+        axios.post('/users/avatar').then(res => {
+            this.avatarUrl = res.data
+        })
+    }
 }
 </script>
 
 <style>
-    
+.navbar-brand .img-rounded {
+    width: 40px;
+    height:40px;
+    margin-top:-10px;
+    margin-right:-15px;
+    border-radius:50%;
+    border: solid 1px #ddd;
+}
 </style>
