@@ -15,7 +15,7 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        {path: '/', component: require('./Index.vue')}
+        {path: '/', component: require('./components/BookList.vue')}
     ]
 });
 
@@ -29,7 +29,6 @@ Vue.component('book-list', require('./components/BookList.vue'));
 Vue.component('book', require('./components/Book.vue'));
 Vue.component('register-input', require('./components/RegisterInput.vue'));
 Vue.component('book-list-pagination', require('./components/BookListPagination.vue'))
-Vue.component('index', require('./Index.vue'))
 Vue.component('app-navbar', require('./components/AppNavbar.vue'))
 
 const app = new Vue({

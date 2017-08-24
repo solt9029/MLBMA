@@ -1,21 +1,24 @@
 <template>
-    <div class="container">
-        <register-input @showEvent="show"></register-input>
-        <table class="table">
-            <tr>
-                <th>ISBN</th><th>書籍名</th><th>状態（中野図書館）</th><th></th>
-            </tr>
-            <book 
-                v-for="book in books" 
-                :isbn="book.isbn" 
-                :name="book.name" 
-                :state="book.state" 
-                :id="book.id"
-                :key="book.id"
-                @showEvent="show">
-            </book>
-        </table>
-        <book-list-pagination :page="page" :lastPage="lastPage"></book-list-pagination>
+    <div>
+        <app-navbar></app-navbar>
+        <div class="container">
+            <register-input @showEvent="show"></register-input>
+            <table class="table">
+                <tr>
+                    <th>ISBN</th><th>書籍名</th><th>状態（中野図書館）</th><th></th>
+                </tr>
+                <book 
+                    v-for="book in books" 
+                    :isbn="book.isbn" 
+                    :name="book.name" 
+                    :state="book.state" 
+                    :id="book.id"
+                    :key="book.id"
+                    @showEvent="show">
+                </book>
+            </table>
+            <book-list-pagination :page="page" :lastPage="lastPage"></book-list-pagination>
+        </div>
     </div>
 </template>
 
@@ -23,12 +26,14 @@
 import Book from './Book'
 import BookListPagination from './BookListPagination'
 import RegisterInput from './RegisterInput'
+import AppNavbar from './AppNavbar'
 export default {
     name: 'book-list',
     components: {
         Book,
         BookListPagination,
-        RegisterInput
+        RegisterInput,
+        AppNavbar
     },
     data() {
         return {

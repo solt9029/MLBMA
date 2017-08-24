@@ -14,7 +14,6 @@
         <a href="/auth/twitter/logout" role="button">Logout</a>
     </div>
     <div id="app">
-        <app-navbar></app-navbar>
         <router-view></router-view>
     </div>
     <script src="js/app.js"></script>
