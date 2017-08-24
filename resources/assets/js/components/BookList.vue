@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <register-input @showEvent="show"></register-input>
         <table class="table">
             <tr>

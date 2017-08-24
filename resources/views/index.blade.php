@@ -13,7 +13,8 @@
         <img src="{{ Auth::user()->avatar }}" height="200" width="200" />
         <a href="/auth/twitter/logout" role="button">Logout</a>
     </div>
-    <div id="app" class="container">
+    <div id="app">
+        <app-navbar></app-navbar>
         <router-view></router-view>
     </div>
     <script src="js/app.js"></script>
