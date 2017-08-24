@@ -12,9 +12,14 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!-- yoursかどうかでアクティブになるか決まる -->
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">あなたの本</a></li>
-                    <li><a href="#">みんなの本</a></li>
+                    <li :class="{ active: yours }">
+                        <router-link :to="{path: '/', query: {yours: true}}">あなたの本</router-link>
+                    </li>
+                    <li :class="{ active: !yours }">
+                        <router-link :to="{path: '/', query: {yours: false}}">みんなの本</router-link>
+                    </li>
                 </ul>
                 
                 <form class="navbar-form navbar-right">
@@ -30,7 +35,13 @@
 
 <script>
 export default {
-    name: 'app-navbar'
+    name: 'app-navbar',
+    props: {
+        yours: {
+            type: Boolean,
+            required: true
+        }
+    },
 }
 </script>
 
