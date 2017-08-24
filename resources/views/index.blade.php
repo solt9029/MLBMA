@@ -7,12 +7,6 @@
     <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-    <div class="container">
-        <h4>Your name is {{ Auth::user()->name }} </h4>
-        <h4>Your twitter handle is {{ Auth::user()->handle }} </h4>
-        <img src="{{ Auth::user()->avatar }}" height="200" width="200" />
-        <a href="/auth/twitter/logout" role="button">Logout</a>
-    </div>
     <div id="app">
         <router-view></router-view>
     </div>
