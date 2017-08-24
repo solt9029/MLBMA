@@ -1,0 +1,16 @@
+web:
+  build: .
+  ports:
+    - "8005:80"
+  links:
+    - db
+  volumes:
+    - ../:/var/www/html
+    - ./httpd:/etc/httpd/conf
+db:
+  image: "mysql:5"
+  volumes:
+    - ./mysql:/etc/mysql/conf.d
+  environment:
+    MYSQL_ROOT_PASSWORD: phpapptest
+    MYSQL_DATABASE: mlbma
