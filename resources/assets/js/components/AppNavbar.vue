@@ -18,7 +18,7 @@
                 </ul>
                 
                 <form class="navbar-form navbar-right">
-                    <button class="btn btn-default">ログアウト</button>
+                    <a class="btn btn-default" href="/auth/twitter/logout">ログアウト</a>
                 </form>
                 <form class="navbar-form navbar-right">
                     <input type="text" class="form-control" placeholder="Search">
