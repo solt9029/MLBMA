@@ -22,6 +22,7 @@
             </table>
             <book-list-pagination :page="page" :lastPage="lastPage" :yours="yours"></book-list-pagination>
         </div>
+        <app-footer></app-footer>
     </div>
 </template>
 
@@ -30,13 +31,15 @@ import Book from './Book'
 import BookListPagination from './BookListPagination'
 import RegisterInput from './RegisterInput'
 import AppNavbar from './AppNavbar'
+import AppFooter from './AppFooter'
 export default {
     name: 'book-list',
     components: {
         Book,
         BookListPagination,
         RegisterInput,
-        AppNavbar
+        AppNavbar,
+        AppFooter
     },
     data() {
         return {
