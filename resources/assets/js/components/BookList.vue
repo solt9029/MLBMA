@@ -46,30 +46,12 @@ export default {
     watch: {
         '$route' (to, from) {
             this.show()
-            console.log(this.$route.query.yours)
-            console.log(typeof this.$route.query.yours)
         }
     },
     methods: {
         show: function () {
-            //もし指定されていて数値であればその値にする
-            if(this.$route.query.page && !isNaN(this.$route.query.page)){
-                this.page = parseInt(this.$route.query.page)
-            }
-
-            if (this.$route.query.yours !== undefined) {
-                //指定されたyoursの型がブーリアンだったらそのまま代入する
-                if (typeof this.$route.query.yours === 'boolean') {
-                    this.yours = this.$route.query.yours
-                } else {
-                    //文字列とかだったら、その文字列に応じてブーリアンにして格納する
-                    if (this.$route.query.yours === 'true') {
-                        this.yours = true
-                    } else if (this.$route.query.yours === 'false') {
-                        this.yours = false
-                    }
-                } 
-            }
+            this.validateQueryPage()
+            this.validateQueryYours()
 
             axios.post('/books/show', {
                 page: this.page
@@ -104,6 +86,27 @@ export default {
         //図書館での本の状態を受け取るための配列を生成する
         getCopiedBooks: function () {
             return JSON.parse(JSON.stringify(this.books))//値渡しにするためにJSON文字列に一回変換している
+        },
+        validateQueryPage: function () {
+            //もし指定されていて数値であればその値にする
+            if(this.$route.query.page && !isNaN(this.$route.query.page)){
+                this.page = parseInt(this.$route.query.page)
+            }
+        },
+        validateQueryYours: function () {
+            if (this.$route.query.yours !== undefined) {
+                //指定されたyoursの型がブーリアンだったらそのまま代入する
+                if (typeof this.$route.query.yours === 'boolean') {
+                    this.yours = this.$route.query.yours
+                } else {
+                    //文字列とかだったら、その文字列に応じてブーリアンにして格納する
+                    if (this.$route.query.yours === 'true') {
+                        this.yours = true
+                    } else if (this.$route.query.yours === 'false') {
+                        this.yours = false
+                    }
+                } 
+            }
         }
     },
     created: function () {
