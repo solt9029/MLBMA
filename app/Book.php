@@ -8,21 +8,8 @@ class Book extends Model
 {
     protected $fillable=["user_id","isbn","name"];
 
-    public static function validateISBN($isbn)
-    {
-        //ISBNの値のバリデーション
-        if (!is_numeric($isbn) || mb_strlen($isbn) !== 13) {
-            return false;
-        }
-    }
-
     public static function getName($isbn)
     {
-        //ISBNの値のバリデーション
-        if(!is_numeric($isbn) || mb_strlen($isbn) !== 13){
-            return false;
-        }
-
         $url = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=isbn=" . $isbn;
         $xml = simplexml_load_file($url);
         $xml_part = (string)$xml->records->record->recordData;
