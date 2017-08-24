@@ -31,8 +31,8 @@ class UsersController extends Controller
         return view("index");
     }
 
-    public function avatar()
+    public function info()
     {
-        return Auth::user()->avatar;
+        return Auth::user();
     }
 }

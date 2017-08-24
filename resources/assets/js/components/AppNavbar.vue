@@ -25,7 +25,7 @@
                 <form class="navbar-form navbar-right">
                     <a class="btn btn-default" href="/auth/twitter/logout">ログアウト</a>
                 </form>
-                <a class="navbar-brand navbar-right" href="#">
+                <a class="navbar-brand navbar-right" :href="twitterUrl" target="blank">
                     <img :src="avatarUrl" class="img-rounded">
                 </a>
                 <form class="navbar-form navbar-right">
@@ -46,12 +46,14 @@ export default {
     },
     data() {
         return {
-            avatarUrl: null
+            avatarUrl: null,
+            twitterUrl: 'http://twitter.com'
         }
     },
     created: function () {
-        axios.post('/users/avatar').then(res => {
-            this.avatarUrl = res.data
+        axios.post('/users/info').then(res => {
+            this.avatarUrl = res.data.avatar
+            this.twitterUrl = `http://twitter.com/${res.data.handle}`
         })
     }
 }
