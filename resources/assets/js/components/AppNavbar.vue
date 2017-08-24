@@ -15,10 +15,10 @@
                 <!-- yoursかどうかでアクティブになるか決まる -->
                 <ul class="nav navbar-nav">
                     <li :class="{ active: yours }">
-                        <router-link :to="{path: '/', query: {yours: true}}">あなたの本</router-link>
+                        <router-link :to="{path: '/', query: {yours: true, page: 1}}">あなたの本</router-link>
                     </li>
                     <li :class="{ active: !yours }">
-                        <router-link :to="{path: '/', query: {yours: false}}">みんなの本</router-link>
+                        <router-link :to="{path: '/', query: {yours: false, page: 1}}">みんなの本</router-link>
                     </li>
                 </ul>
                 
@@ -38,8 +38,7 @@ export default {
     name: 'app-navbar',
     props: {
         yours: {
-            type: Boolean,
-            required: true
+            type: Boolean
         }
     },
 }

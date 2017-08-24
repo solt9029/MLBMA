@@ -17,7 +17,7 @@
                     @showEvent="show">
                 </book>
             </table>
-            <book-list-pagination :page="page" :lastPage="lastPage"></book-list-pagination>
+            <book-list-pagination :page="page" :lastPage="lastPage" :yours="yours"></book-list-pagination>
         </div>
     </div>
 </template>
@@ -54,7 +54,8 @@ export default {
             this.validateQueryYours()
 
             axios.post('/books/show', {
-                page: this.page
+                page: this.page,
+                yours: this.yours
             }).then(res => {
                 this.lastPage = res.data.last_page
                 this.books = res.data.data
