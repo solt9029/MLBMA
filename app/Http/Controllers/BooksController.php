@@ -86,8 +86,14 @@ class BooksController extends Controller
 
         $id=intval($request->input("id"));
         $book=Book::find($id);
-        $book->delete();
-        return;
+
+        //削除しようとしている本のユーザIDとログインしているユーザのIDが一致していたら削除する
+        if (Auth::user()->id === $book->user_id) {
+            $book->delete();
+            return;
+        }
+
+        return false;
     }
 
     //ページネーションしながら出してほしい
@@ -116,6 +122,7 @@ class BooksController extends Controller
 
     public function test()
     {
-        return Book::getInfo('9784822296537');
+        $book = Book::find(2);
+        return Auth::user()->id;
     }
 }
