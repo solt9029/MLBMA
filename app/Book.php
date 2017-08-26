@@ -24,6 +24,11 @@ class Book extends Model
         $url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' . $isbn;
         $json = file_get_contents($url);
         $info = json_decode($json, true);
+
+        if (!array_key_exists('items', $info)) {
+            return [];
+        }
+        
         return $info['items'][0]['volumeInfo'];
         // return $info["items"][0]["volumeInfo"]["authors"]; // 著者
         // return $info["items"][0]["volumeInfo"]["publishedDate"]; // 出版日

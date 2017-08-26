@@ -32,23 +32,47 @@ class BooksController extends Controller
         }
 
         $info = Book::getInfo($isbn);
-        $author = '';
 
-        foreach ($info['authors'] as $a) {
-            $author .= $a;
-            $author .= '/';
+        $author = '';
+        if (array_key_exists('authors', $info)) {
+            foreach ($info['authors'] as $a) {
+                $author .= $a;
+                $author .= '/';
+            }
         }
 
+        $published = '';
+        if (array_key_exists('publishedDate', $info)) {
+            $published = $info['publishedDate'];
+        }
+
+        $description = '';
+        if (array_key_exists('description', $info)) {
+            $description = $info['description'];
+        }
+
+        $page = null;
+        if (array_key_exists('pageCount', $info)) {
+            $page = $info['pageCount'];
+        }
+
+        $thumbnail = '';
+        if (array_key_exists('imageLinks', $info)) {
+            if (array_key_exists('thumbnail', $info['imageLinks'])) {
+                $thumbnail = $info['imageLinks']['thumbnail'];
+            }
+        }
+        
         //そのインデックスが存在してから代入した方がよさそうだけど、とりあえずこれで
         Book::create([
             "user_id"=>Auth::user()->id,
             "isbn"=>$request->input("isbn"),
             "name"=>$name,
             'author' => $author,
-            'published' => $info['publishedDate'],
-            'description' => $info['description'],
-            'page' => intval($info['pageCount']),
-            'thumbnail' => $info['imageLinks']['thumbnail']
+            'published' => $published,
+            'description' => $description,
+            'page' => intval($page),
+            'thumbnail' => $thumbnail
         ]);
 
         return;
