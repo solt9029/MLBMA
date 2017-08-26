@@ -31,11 +31,25 @@ class BooksController extends Controller
             return false;
         }
 
-        Book::create([
+        $info = Book::getInfo($isbn);
+        $author = '';
+
+        foreach ($info['authors'] as $a) {
+            $author .= $a;
+            $author .= '/';
+        }
+
+        //そのインデックスが存在してから代入した方がよさそうだけど、とりあえずこれで
+        logger(Book::create([
             "user_id"=>Auth::user()->id,
             "isbn"=>$request->input("isbn"),
-            "name"=>$name
-        ]);
+            "name"=>$name,
+            'author' => $author,
+            'published' => $info['publishedDate'],
+            'description' => $info['description'],
+            'page' => intval($info['pageCount']),
+            'thumbnail' => $info['imageLinks']['thumbnail']
+        ]));
 
         return;
     }

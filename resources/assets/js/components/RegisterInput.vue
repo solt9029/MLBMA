@@ -21,6 +21,7 @@ export default {
                 isbn: this.isbn
             }).then(res => {
                 this.isbn = null
+                console.log(res)
                 this.$emit('showEvent')
             }).catch(res => {
                 //this.isbn = null

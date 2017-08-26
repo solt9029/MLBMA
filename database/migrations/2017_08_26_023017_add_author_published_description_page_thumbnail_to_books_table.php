@@ -16,7 +16,7 @@ class AddAuthorPublishedDescriptionPageThumbnailToBooksTable extends Migration
         Schema::table('books', function (Blueprint $table) {
             $table->string('author')->nullable();
             $table->string('published')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->integer('page')->nullable();
             $table->string('thumbnail')->nullable();
         });
