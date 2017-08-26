@@ -4,7 +4,7 @@
             class="isbn"
             data-toggle="modal"
             data-target="#modal">
-            <a>{{isbn}}</a>
+            <a @click="setModal">{{isbn}}</a>
         </td>
         <td class="name">{{name}}</td>
         <td class="state">{{state}}</td>
@@ -45,6 +45,14 @@ export default {
             }).then(res => {
                 this.$emit('showEvent')
             });
+        },
+        setModal: function () {
+            this.$emit('modalEvent',{
+                isbn: this.isbn,
+                name: this.name,
+                state: this.state,
+                id: this.id
+            })
         }
     }
 }

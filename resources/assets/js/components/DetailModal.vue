@@ -4,14 +4,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-                    <h4 class="modal-title">{{}}</h4>
+                    <h4 class="modal-title">{{name}}</h4>
                 </div>
                 <div class="modal-body">
                     本文
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                    <button type="button" class="btn btn-primary">ボタン</button>
                 </div>
             </div>
         </div>
@@ -20,6 +19,24 @@
 
 <script>
 export default {
-    name: 'detail-modal'
+    name: 'detail-modal',
+    props: {
+        isbn: {
+            type: String,
+            required: true
+        },
+        name: {
+            type: String,
+            required: true
+        },
+        state: {
+            type: String,
+            required: false
+        },
+        id: {
+            type: Number,
+            required: true
+        }
+    },
 }
 </script>

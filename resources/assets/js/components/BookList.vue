@@ -17,11 +17,12 @@
                     :state="book.state" 
                     :id="book.id"
                     :key="book.id"
-                    @showEvent="show">
+                    @showEvent="show"
+                    @modalEvent="setModal">
                 </book>
             </table>
 
-            <detail-modal></detail-modal>
+            <detail-modal :isbn="modal.isbn" :name="modal.name" :state="modal.state" :id="id"></detail-modal>
 
             <book-list-pagination :page="page" :lastPage="lastPage" :yours="yours"></book-list-pagination>
         </div>
@@ -51,7 +52,8 @@ export default {
             books: [],
             page: 1,
             lastPage: 1,
-            yours: true
+            yours: true,
+            modal: {}
         }
     },
     watch: {
@@ -119,6 +121,9 @@ export default {
                     }
                 } 
             }
+        },
+        setModal: function (book) {
+            this.modal = book
         }
     },
     created: function () {
