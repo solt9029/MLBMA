@@ -14,11 +14,11 @@ class AddAuthorPublishedDescriptionPageThumbnailToBooksTable extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->string('author');
-            $table->string('published');
-            $table->string('description');
-            $table->integer('page');
-            $table->string('thumbnail');
+            $table->string('author')->nullable();
+            $table->string('published')->nullable();
+            $table->string('description')->nullable();
+            $table->integer('page')->nullable();
+            $table->string('thumbnail')->nullable();
         });
     }
 
