@@ -36,6 +36,21 @@ export default {
         id: {
             type: Number,
             required: true
+        },
+        author: {
+            type: String
+        },
+        published: {
+            type: String
+        },
+        description: {
+            type: String
+        },
+        page: {
+            type: Number
+        },
+        thumbnail: {
+            type: String
         }
     },
     methods: {
@@ -51,7 +66,12 @@ export default {
                 isbn: this.isbn,
                 name: this.name,
                 state: this.state,
-                id: this.id
+                id: this.id,
+                author: this.author,
+                published: this.published,
+                description: this.description,
+                page: this.page,
+                thumbnail: this.thumbnail
             })
         }
     }

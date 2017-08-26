@@ -40,7 +40,7 @@ class BooksController extends Controller
         }
 
         //そのインデックスが存在してから代入した方がよさそうだけど、とりあえずこれで
-        logger(Book::create([
+        Book::create([
             "user_id"=>Auth::user()->id,
             "isbn"=>$request->input("isbn"),
             "name"=>$name,
@@ -49,7 +49,7 @@ class BooksController extends Controller
             'description' => $info['description'],
             'page' => intval($info['pageCount']),
             'thumbnail' => $info['imageLinks']['thumbnail']
-        ]));
+        ]);
 
         return;
     }

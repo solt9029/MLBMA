@@ -16,13 +16,28 @@
                     :name="book.name" 
                     :state="book.state" 
                     :id="book.id"
+                    :author="book.author"
+                    :published="book.published"
+                    :description="book.description"
+                    :page="book.page"
+                    :thumbnail="book.thumbnail"
                     :key="book.id"
                     @showEvent="show"
                     @modalEvent="setModal">
                 </book>
             </table>
 
-            <detail-modal :isbn="modal.isbn" :name="modal.name" :state="modal.state" :id="modal.id"></detail-modal>
+            <detail-modal 
+                :isbn="modal.isbn" 
+                :name="modal.name" 
+                :state="modal.state" 
+                :id="modal.id"
+                :author="modal.author"
+                :published="modal.published"
+                :description="modal.description"
+                :page="modal.page"
+                :thumbnail="modal.thumbnail">
+            </detail-modal>
 
             <book-list-pagination :page="page" :lastPage="lastPage" :yours="yours"></book-list-pagination>
         </div>

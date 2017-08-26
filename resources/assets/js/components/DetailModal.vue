@@ -7,10 +7,21 @@
                     <h4 class="modal-title">{{name}}</h4>
                 </div>
                 <div class="modal-body">
-                    <ul>
-                        <li>ISBN： {{isbn}}</li>
-                        <li>状態（中野図書館）： {{state}}</li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img :src="thumbnail" class="thumbnail">
+                        </div>
+                        <div class="col-sm-8">
+                            <ul>
+                                <li>ISBN： {{isbn}}</li>
+                                <li>状態（中野図書館）： {{state}}</li>
+                                <li>著者： {{author}}</li>
+                                <li>出版日： {{published}}</li>
+                                <li>概要： {{description}}</li>
+                                <li>ページ数： {{page}}</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Amazonで探す</button>
@@ -35,7 +46,31 @@ export default {
         },
         id: {
             type: Number
+        },
+        author: {
+            type: String
+        },
+        published: {
+            type: String
+        },
+        description: {
+            type: String
+        },
+        page: {
+            type: Number
+        },
+        thumbnail: {
+            type: String
         }
     }
 }
 </script>
+
+<style>
+.thumbnail {
+    width: 100%;
+}
+li {
+    margin-bottom: 7px;
+}
+</style>
