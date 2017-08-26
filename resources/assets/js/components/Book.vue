@@ -9,7 +9,7 @@
         <td class="name">{{name}}</td>
         <td class="state">{{state}}</td>
         <td class="delete">
-            <button @click="del" class="btn btn-warning">
+            <button v-if="loginUser.id === userId" @click="del" class="btn btn-warning">
                 削除
             </button>
         </td>
@@ -36,6 +36,13 @@ export default {
         id: {
             type: Number,
             required: true
+        },
+        userId: {
+            type: Number,
+            required: true
+        },
+        loginUser: {
+            type: Object
         },
         author: {
             type: String

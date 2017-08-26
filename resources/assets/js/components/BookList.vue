@@ -22,6 +22,8 @@
                     :page="book.page"
                     :thumbnail="book.thumbnail"
                     :key="book.id"
+                    :userId="book.user_id"
+                    :loginUser="loginUser"
                     @showEvent="show"
                     @modalEvent="setModal">
                 </book>
@@ -68,7 +70,8 @@ export default {
             page: 1,
             lastPage: 1,
             yours: true,
-            modal: {}
+            modal: {},
+            loginUser: {}
         }
     },
     watch: {
@@ -143,6 +146,11 @@ export default {
     },
     created: function () {
         this.show()
+
+        axios.post('/users/info').then(res => {
+            this.loginUser = res.data
+            //console.log(res.data.id)
+        })
     }
 }
 </script>
