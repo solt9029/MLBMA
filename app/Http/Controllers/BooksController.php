@@ -75,4 +75,9 @@ class BooksController extends Controller
 
         return Book::getState($request->input("isbn"), $request->input("campus"));
     }
+
+    public function test()
+    {
+        return Book::getInfo('9784822296537');
+    }
 }

@@ -17,6 +17,21 @@ class Book extends Model
         return $name;
     }
 
+    //著者・出版日・概要・ページ数・画像をとってきてあげたい！
+    public static function getInfo($isbn)
+    {
+        //httpsでないと駄目っぽい
+        $url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' . $isbn;
+        $json = file_get_contents($url);
+        $info = json_decode($json, true);
+        return $info['items'][0]['volumeInfo'];
+        // return $info["items"][0]["volumeInfo"]["authors"]; // 著者
+        // return $info["items"][0]["volumeInfo"]["publishedDate"]; // 出版日
+        // return $info["items"][0]["volumeInfo"]["description"]; // 概要
+        // return $info["items"][0]["volumeInfo"]["pageCount"]; // ページ数
+        // return $info["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]; // サムネイル画像
+    }
+
     public static function getState($isbn, $campus)
     {
         //キャッシュがあればそれを返す
