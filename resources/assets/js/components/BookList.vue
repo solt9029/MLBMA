@@ -22,7 +22,7 @@
                 </book>
             </table>
 
-            <detail-modal :isbn="modal.isbn" :name="modal.name" :state="modal.state" :id="id"></detail-modal>
+            <detail-modal :isbn="modal.isbn" :name="modal.name" :state="modal.state" :id="modal.id"></detail-modal>
 
             <book-list-pagination :page="page" :lastPage="lastPage" :yours="yours"></book-list-pagination>
         </div>

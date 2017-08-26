@@ -7,10 +7,13 @@
                     <h4 class="modal-title">{{name}}</h4>
                 </div>
                 <div class="modal-body">
-                    本文
+                    <ul>
+                        <li>ISBN： {{isbn}}</li>
+                        <li>状態（中野図書館）： {{state}}</li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Amazonで探す</button>
                 </div>
             </div>
         </div>
@@ -22,21 +25,17 @@ export default {
     name: 'detail-modal',
     props: {
         isbn: {
-            type: String,
-            required: true
+            type: String
         },
         name: {
-            type: String,
-            required: true
+            type: String
         },
         state: {
-            type: String,
-            required: false
+            type: String
         },
         id: {
-            type: Number,
-            required: true
+            type: Number
         }
-    },
+    }
 }
 </script>
