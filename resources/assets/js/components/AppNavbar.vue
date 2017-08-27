@@ -16,7 +16,6 @@
                 <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`, query: {page: 1}}">
                     <img :src="loginUser.avatar" class="img-rounded">
                 </router-link>
-                <!-- <router-link :to="{query: {page: page + 1}}">Next</router-link> -->
                 <form class="navbar-form navbar-right">
                     <input type="text" class="form-control" placeholder="Search">
                 </form>
