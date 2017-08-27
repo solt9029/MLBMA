@@ -12,19 +12,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!-- yoursかどうかでアクティブになるか決まる -->
-                <ul class="nav navbar-nav">
-                    <li :class="{ active: yours }">
-                        <router-link :to="{path: '/', query: {yours: true, page: 1}}">あなたの本</router-link>
-                    </li>
-                    <li :class="{ active: !yours }">
-                        <router-link :to="{path: '/', query: {yours: false, page: 1}}">みんなの本</router-link>
-                    </li>
-                </ul>
-                
-                <form class="navbar-form navbar-right">
-                    <a class="btn btn-default" href="/auth/twitter/logout">ログアウト</a>
-                </form>
+                <a class="btn btn-default navbar-right nav-link" href="/auth/twitter/logout">ログアウト</a>
                 <a class="navbar-brand navbar-right" :href="twitterUrl" target="blank">
                     <img :src="avatarUrl" class="img-rounded">
                 </a>
@@ -39,11 +27,6 @@
 <script>
 export default {
     name: 'app-navbar',
-    props: {
-        yours: {
-            type: Boolean
-        }
-    },
     data() {
         return {
             avatarUrl: null,
@@ -62,10 +45,12 @@ export default {
 <style>
 .navbar-brand .img-rounded {
     width: 40px;
-    height:40px;
-    margin-top:-10px;
-    margin-right:-15px;
-    border-radius:50%;
+    height: 40px;
+    margin-top: -10px;
+    border-radius: 50%;
     border: solid 1px #ddd;
+}
+.nav-link {
+    margin-top: 8px;
 }
 </style>
