@@ -13,7 +13,7 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <a class="btn btn-default navbar-right nav-link" href="/auth/twitter/logout">ログアウト</a>
-                <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`}">
+                <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`, query: {page: 1}}">
                     <img :src="loginUser.avatar" class="img-rounded">
                 </router-link>
                 <!-- <router-link :to="{query: {page: page + 1}}">Next</router-link> -->
