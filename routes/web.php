@@ -72,3 +72,8 @@ Route::get('/users/test/{id?}', [
     'as' => 'users.test',
     'uses' => 'UsersController@test'
 ]);
+
+Route::post('/users/info', [
+    'as' => 'users.info',
+    'uses' => 'UsersController@info'
+]);

@@ -1,7 +1,7 @@
 <template>
     <div>
         <app-navbar :loginUser="loginUser"></app-navbar>
-        <app-user-header v-if="this.$route.params.id"></app-user-header>
+        <app-user-header :paramUser="paramUser" v-if="this.$route.params.id"></app-user-header>
         <div class="container">
             <register-input @showEvent="show" v-if="!this.$route.params.id"></register-input>
             <table class="table table-striped table-responsive table-bordered">
@@ -59,12 +59,14 @@ export default {
             page: 1,
             lastPage: 1,
             modal: {},
-            loginUser: {}
+            loginUser: {},
+            paramUser: {}
         }
     },
     watch: {
         '$route' (to, from) {
             this.show()
+            this.getParamUser()
         }
     },
     methods: {
@@ -114,6 +116,17 @@ export default {
         },
         setModal: function (book) {
             this.modal = book
+        },
+        getParamUser: function () {
+            if (!this.$route.params.id) {
+                return
+            }
+
+            axios.post('/users/info', {
+                id: this.$route.params.id
+            }).then(res => {
+                this.paramUser = res.data
+            })
         }
     },
     created: function () {
@@ -124,6 +137,8 @@ export default {
             this.loginUser = res.data
             //console.log(res.data.id)
         })
+
+        this.getParamUser()
     }
 }
 </script>

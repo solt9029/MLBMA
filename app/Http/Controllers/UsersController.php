@@ -36,6 +36,17 @@ class UsersController extends Controller
         return Auth::user();
     }
 
+    public function info(Request $request)
+    {
+        $this->validate($request, [
+            'id' => 'required'
+        ]);
+
+        $id = intval($request->input('id'));
+        
+        return User::find($id);
+    }
+
     public function test($id=null)
     {
         if ($id) {
