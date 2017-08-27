@@ -67,3 +67,8 @@ Route::get('/books/test', [
     'as' => 'books.test',
     'uses' => 'BooksController@test'
 ]);
+
+Route::get('/users/test', [
+    'as' => 'users.test',
+    'uses' => 'UsersController@test'
+]);

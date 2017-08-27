@@ -35,4 +35,9 @@ class UsersController extends Controller
     {
         return Auth::user();
     }
+
+    public function test()
+    {
+        return "test";
+    }
 }
