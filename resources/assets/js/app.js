@@ -15,7 +15,8 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        {path: '/', component: require('./components/BookList.vue')}
+        {path: '/', component: require('./components/BookList.vue')},
+        {path: '/:id', component: require('./components/BookList.vue')}
     ]
 });
 

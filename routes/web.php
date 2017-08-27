@@ -18,7 +18,7 @@ Route::get('/login', [
 ]);
 
 //メイン画面→ここで大体の処理を行うよ
-Route::get("/",[
+Route::get("/{id?}",[
     "as"=>"index",
     "uses"=>"UsersController@index"
 ]);
