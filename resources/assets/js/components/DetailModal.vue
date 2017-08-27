@@ -24,7 +24,12 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Amazonで探す</button>
+                    <a 
+                        target="blank"
+                        class="btn btn-default"
+                        :href="`https://www.amazon.co.jp/s/ref=nb_sb_noss?field-keywords=${modal.isbn}`">
+                        Amazonで探す
+                    </a>
                 </div>
             </div>
         </div>
