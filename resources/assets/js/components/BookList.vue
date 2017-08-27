@@ -12,36 +12,23 @@
                 </tr>
                 <book 
                     v-for="book in books" 
-                    :isbn="book.isbn" 
-                    :name="book.name" 
-                    :state="book.state" 
-                    :id="book.id"
-                    :author="book.author"
-                    :published="book.published"
-                    :description="book.description"
-                    :page="book.page"
-                    :thumbnail="book.thumbnail"
+                    :book="book"
                     :key="book.id"
-                    :userId="book.user_id"
                     :loginUser="loginUser"
                     @showEvent="show"
                     @modalEvent="setModal">
                 </book>
             </table>
 
-            <detail-modal 
-                :isbn="modal.isbn" 
-                :name="modal.name" 
-                :state="modal.state" 
-                :id="modal.id"
-                :author="modal.author"
-                :published="modal.published"
-                :description="modal.description"
-                :page="modal.page"
-                :thumbnail="modal.thumbnail">
+            <detail-modal :modal="modal">
             </detail-modal>
 
-            <book-list-pagination :page="page" :lastPage="lastPage" :yours="yours"></book-list-pagination>
+            <book-list-pagination 
+                :page="page" 
+                :lastPage="lastPage" 
+                :yours="yours">
+            </book-list-pagination>
+            
         </div>
         <app-footer></app-footer>
     </div>
@@ -147,6 +134,7 @@ export default {
     created: function () {
         this.show()
 
+        //ログインしているユーザの情報を取得する
         axios.post('/users/info').then(res => {
             this.loginUser = res.data
             //console.log(res.data.id)

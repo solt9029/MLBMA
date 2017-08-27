@@ -4,21 +4,21 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-                    <h4 class="modal-title">{{name}}</h4>
+                    <h4 class="modal-title">{{modal.name}}</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            <img :src="thumbnail" class="thumbnail">
+                            <img :src="modal.thumbnail" class="thumbnail">
                         </div>
                         <div class="col-sm-8">
                             <ul>
-                                <li>ISBN： {{isbn}}</li>
-                                <li>状態（中野図書館）： {{state}}</li>
-                                <li>著者： {{author}}</li>
-                                <li>出版日： {{published}}</li>
-                                <li>概要： {{description}}</li>
-                                <li>ページ数： {{page}}</li>
+                                <li>ISBN： {{modal.isbn}}</li>
+                                <li>状態（中野図書館）： {{modal.state}}</li>
+                                <li>著者： {{modal.author}}</li>
+                                <li>出版日： {{modal.published}}</li>
+                                <li>概要： {{modal.description}}</li>
+                                <li>ページ数： {{modal.page}}</li>
                             </ul>
                         </div>
                     </div>
@@ -35,32 +35,8 @@
 export default {
     name: 'detail-modal',
     props: {
-        isbn: {
-            type: String
-        },
-        name: {
-            type: String
-        },
-        state: {
-            type: String
-        },
-        id: {
-            type: Number
-        },
-        author: {
-            type: String
-        },
-        published: {
-            type: String
-        },
-        description: {
-            type: String
-        },
-        page: {
-            type: Number
-        },
-        thumbnail: {
-            type: String
+        modal: {
+            type: Object
         }
     }
 }
