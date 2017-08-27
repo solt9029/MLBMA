@@ -34,7 +34,7 @@ export default {
     },
     data() {
         return {
-            keyword: null
+            keyword: this.$route.query.keyword
         }
     },
     watch: {
