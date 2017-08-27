@@ -108,9 +108,18 @@ class BooksController extends Controller
             ->select('books.*', 'users.handle')
             ->paginate($page_num);
 
+        if ($request->input('user_id')) {
+            $books = DB::table('books')
+                ->orderBy('created_at', 'desc')
+                ->join('users', 'books.user_id', '=', 'users.id')
+                ->where('books.user_id', '=', $request->input('user_id'))
+                ->select('books.*', 'users.handle')
+                ->paginate($page_num);
+        }
+
         // if ($request->input('yours')) {
         //     $user_id = Auth::user()->id;
-            
+
         //     $books = DB::table('books')
         //         ->orderBy('created_at', 'desc')
         //         ->join('users', 'books.user_id', '=', 'users.id')

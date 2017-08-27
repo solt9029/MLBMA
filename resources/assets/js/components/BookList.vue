@@ -70,7 +70,8 @@ export default {
             this.validateQueryPage()
 
             axios.post('/books/show', {
-                page: this.page
+                page: this.page,
+                user_id: this.$route.params.id
             }).then(res => {
                 this.lastPage = res.data.last_page
                 this.books = res.data.data
