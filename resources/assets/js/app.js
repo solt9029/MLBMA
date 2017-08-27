@@ -26,15 +26,6 @@ const router = new VueRouter({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('book-list', require('./components/BookList.vue'));
-Vue.component('book', require('./components/Book.vue'));
-Vue.component('register-input', require('./components/RegisterInput.vue'));
-Vue.component('book-list-pagination', require('./components/BookListPagination.vue'))
-Vue.component('app-navbar', require('./components/AppNavbar.vue'))
-Vue.component('app-footer', require('./components/AppFooter.vue'))
-Vue.component('detail-modal', require('./components/DetailModal.vue'))
-Vue.component('app-user-header', require('./components/AppUserHeader.vue'))
-
 const app = new Vue({
     router,
     el: '#app'
