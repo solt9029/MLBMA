@@ -24,8 +24,7 @@
             <detail-modal :modal="modal" :loginUser="loginUser" @showEvent="show">
             </detail-modal>
 
-            <book-list-pagination 
-                :page="page" 
+            <book-list-pagination  
                 :lastPage="lastPage">
             </book-list-pagination>
             
@@ -56,7 +55,6 @@ export default {
     data() {
         return {
             books: [],
-            page: 1,
             lastPage: 1,
             modal: {},
             loginUser: {},
@@ -71,10 +69,8 @@ export default {
     },
     methods: {
         show: function () {
-            this.validateQueryPage()
-
             axios.post('/books/show', {
-                page: this.page,
+                page: this.$route.query.page,
                 user_id: this.$route.params.id,
                 keyword: this.$route.query.keyword
             }).then(res => {
@@ -108,12 +104,6 @@ export default {
         //図書館での本の状態を受け取るための配列を生成する
         getCopiedBooks: function () {
             return JSON.parse(JSON.stringify(this.books))//値渡しにするためにJSON文字列に一回変換している
-        },
-        validateQueryPage: function () {
-            //もし指定されていて数値であればその値にする
-            if(this.$route.query.page && !isNaN(this.$route.query.page)){
-                this.page = parseInt(this.$route.query.page)
-            }
         },
         setModal: function (book) {
             this.modal = book

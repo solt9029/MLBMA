@@ -12,9 +12,6 @@
 export default {
     name: 'book-list-pagination',
     props: {
-        page: {
-            type: Number
-        },
         lastPage: {
             type: Number
         }
@@ -23,6 +20,12 @@ export default {
     computed: {
         keyword: function () {
             return this.$route.query.keyword
+        },
+        page: function () {
+            if (!this.$route.query.page) {
+                return 1
+            }
+            return parseInt(this.$route.query.page)
         }
     }
 }
