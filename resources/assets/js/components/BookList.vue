@@ -75,7 +75,8 @@ export default {
 
             axios.post('/books/show', {
                 page: this.page,
-                user_id: this.$route.params.id
+                user_id: this.$route.params.id,
+                keyword: this.$route.query.keyword
             }).then(res => {
                 this.lastPage = res.data.last_page
                 this.books = res.data.data

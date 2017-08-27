@@ -16,8 +16,8 @@
                 <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`, query: {page: 1}}">
                     <img :src="loginUser.avatar" class="img-rounded">
                 </router-link>
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search">
+                <form class="navbar-form navbar-right" @submit.prevent="search">
+                    <input type="text" class="form-control" placeholder="Search" v-model="keyword">
                 </form>
             </div>
         </div>
@@ -30,6 +30,26 @@ export default {
     props: {
         loginUser: {
             type: Object
+        }
+    },
+    data() {
+        return {
+            keyword: null
+        }
+    },
+    watch: {
+        '$route' (to, from) {
+            this.keyword = this.$route.query.keyword
+        }
+    },
+    methods: {
+        search: function () {
+            this.$router.push({
+                query: {
+                    keyword: this.keyword,
+                    page: 1
+                }
+            })
         }
     }
 }

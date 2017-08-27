@@ -102,33 +102,20 @@ class BooksController extends Controller
     {
         $page_num = 10;//ページネーションの数
 
-        $books = DB::table('books')
+        $query = DB::table('books')
             ->orderBy('created_at', 'desc')
-            ->join('users', 'books.user_id', '=', 'users.id')
-            ->select('books.*', 'users.handle')
-            ->paginate($page_num);
+            ->join('users', 'books.user_id', '=', 'users.id');
 
         if ($request->input('user_id')) {
-            $books = DB::table('books')
-                ->orderBy('created_at', 'desc')
-                ->join('users', 'books.user_id', '=', 'users.id')
-                ->where('books.user_id', '=', $request->input('user_id'))
-                ->select('books.*', 'users.handle')
-                ->paginate($page_num);
+            $query = $query->where('books.user_id', '=', $request->input('user_id'));
         }
 
-        // if ($request->input('yours')) {
-        //     $user_id = Auth::user()->id;
+        if ($request->input('keyword')) {
+            $keyword = $request->input('keyword');
+            $query = $query->where('books.name', 'like', "%{$keyword}%");
+        }
 
-        //     $books = DB::table('books')
-        //         ->orderBy('created_at', 'desc')
-        //         ->join('users', 'books.user_id', '=', 'users.id')
-        //         ->where('books.user_id', '=', $user_id)
-        //         ->select('books.*', 'users.handle')
-        //         ->paginate($page_num);
-        // }
-
-        return $books;
+        return $query->select('books.*', 'users.handle')->paginate($page_num);
     }
 
     public function state(Request $request)

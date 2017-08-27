@@ -29,7 +29,7 @@
                     </button>
                     <a 
                         target="blank"
-                        class="btn btn-default"
+                        class="btn btn-primary"
                         :href="`https://www.amazon.co.jp/s/ref=nb_sb_noss?field-keywords=${modal.isbn}`">
                         Amazonで探す
                     </a>

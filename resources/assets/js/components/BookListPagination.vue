@@ -1,9 +1,9 @@
 <template>
     <div id="pagination">
         <ul class="pagination">
-            <li><router-link :to="{query: {page: 1}}">«</router-link></li>
-            <li :class="{active: n === page}" v-for="n in lastPage"><router-link :to="{query: {page: n}}">{{n}}</router-link></li>
-            <li><router-link :to="{query: {page: lastPage}}">»</router-link></li>
+            <li><router-link :to="{query: {page: 1, keyword: this.$route.query.keyword}}">«</router-link></li>
+            <li :class="{active: n === page}" v-for="n in lastPage"><router-link :to="{query: {page: n, keyword: keyword}}">{{n}}</router-link></li>
+            <li><router-link :to="{query: {page: lastPage, keyword: this.$route.query.keyword}}">»</router-link></li>
         </ul>
     </div>
 </template>
@@ -17,6 +17,12 @@ export default {
         },
         lastPage: {
             type: Number
+        }
+    },
+    //v-forの中でthisが使えないっぽいから仕方なくcomputedで生成している
+    computed: {
+        keyword: function () {
+            return this.$route.query.keyword
         }
     }
 }
