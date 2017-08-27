@@ -13,7 +13,7 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <a class="btn btn-default navbar-right nav-link" href="/auth/twitter/logout">ログアウト</a>
-                <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`, query: {page: 1}}">
+                <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`}">
                     <img :src="loginUser.avatar" class="img-rounded">
                 </router-link>
                 <form class="navbar-form navbar-right" @submit.prevent="search">
@@ -46,8 +46,7 @@ export default {
         search: function () {
             this.$router.push({
                 query: {
-                    keyword: this.keyword,
-                    page: 1
+                    keyword: this.keyword
                 }
             })
         }
