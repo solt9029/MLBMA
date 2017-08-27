@@ -51,7 +51,7 @@ export default {
         }
     },
     created: function () {
-        axios.post('/users/info').then(res => {
+        axios.post('/users/loginInfo').then(res => {
             this.avatarUrl = res.data.avatar
             this.twitterUrl = `http://twitter.com/${res.data.handle}`
         })

@@ -5,6 +5,7 @@
             <register-input @showEvent="show"></register-input>
             <table class="table table-striped table-responsive table-bordered">
                 <tr>
+                    <th class="user-handle">ユーザ</th>
                     <th class="isbn">ISBN</th>
                     <th class="name">書籍名</th>
                     <th class="state">状態（中野図書館）</th>
@@ -135,7 +136,7 @@ export default {
         this.show()
 
         //ログインしているユーザの情報を取得する
-        axios.post('/users/info').then(res => {
+        axios.post('/users/loginInfo').then(res => {
             this.loginUser = res.data
             //console.log(res.data.id)
         })

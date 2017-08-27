@@ -58,12 +58,17 @@ Route::post("books/state",[
     "uses"=>"BooksController@state"
 ]);
 
-Route::post("users/info", [
-    "as" => "users.info",
-    "uses" => "UsersController@info"
+Route::post("users/loginInfo", [
+    "as" => "users.loginInfo",
+    "uses" => "UsersController@loginInfo"
 ]);
 
 Route::get('/books/test', [
     'as' => 'books.test',
     'uses' => 'BooksController@test'
+]);
+
+Route::post('/users/info', [
+    'as' => 'users.info',
+    'uses' => 'UsersController@info'
 ]);

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -31,8 +31,19 @@ class UsersController extends Controller
         return view("index");
     }
 
-    public function info()
+    public function loginInfo()
     {
         return Auth::user();
+    }
+
+    public function info(Request $request)
+    {
+        $this->validate($request, [
+            'id' => 'required'
+        ]);
+
+        $id = intval($request->input('id'));
+
+        return User::find($id);
     }
 }

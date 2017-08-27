@@ -1,5 +1,10 @@
 <template>
     <tr>
+        <td class="user-handle">
+            <a target="blank" :href="`http://twitter.com/${userHandle}`">
+                {{userHandle}}
+            </a>
+        </td>
         <td 
             class="isbn"
             data-toggle="modal"
@@ -27,6 +32,11 @@ export default {
             type: Object
         }
     },
+    data() {
+        return {
+            userHandle: null
+        }
+    },
     methods: {
         del: function () {
             axios.post('/books/delete', {
@@ -48,6 +58,13 @@ export default {
                 thumbnail: this.book.thumbnail
             })
         }
+    },
+    created: function () {
+        axios.post('/users/info', {
+            id: this.book.user_id
+        }).then(res => {
+            this.userHandle = res.data.handle
+        })
     }
 }
 </script>
