@@ -1,6 +1,7 @@
 <template>
     <div>
         <app-navbar :loginUser="loginUser"></app-navbar>
+        <app-user-header v-if="this.$route.params.id"></app-user-header>
         <div class="container">
             <register-input @showEvent="show" v-if="!this.$route.params.id"></register-input>
             <table class="table table-striped table-responsive table-bordered">
