@@ -68,7 +68,7 @@ Route::get('/books/test', [
     'uses' => 'BooksController@test'
 ]);
 
-Route::get('/users/test', [
+Route::get('/users/test/{id?}', [
     'as' => 'users.test',
     'uses' => 'UsersController@test'
 ]);

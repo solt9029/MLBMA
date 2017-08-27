@@ -36,8 +36,11 @@ class UsersController extends Controller
         return Auth::user();
     }
 
-    public function test()
+    public function test($id=null)
     {
+        if ($id) {
+            return $id;
+        }
         return "test";
     }
 }
