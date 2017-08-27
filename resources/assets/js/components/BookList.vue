@@ -20,7 +20,7 @@
                 </book>
             </table>
 
-            <detail-modal :modal="modal">
+            <detail-modal :modal="modal" :loginUser="loginUser" @showEvent="show">
             </detail-modal>
 
             <book-list-pagination 

@@ -48,7 +48,8 @@ export default {
                 published: this.book.published,
                 description: this.book.description,
                 page: this.book.page,
-                thumbnail: this.book.thumbnail
+                thumbnail: this.book.thumbnail,
+                user_id: this.book.user_id
             })
         }
     }

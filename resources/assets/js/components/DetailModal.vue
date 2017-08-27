@@ -24,6 +24,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button class="btn btn-warning" @click="del" v-if="modal.user_id === loginUser.id">
+                        削除
+                    </button>
                     <a 
                         target="blank"
                         class="btn btn-default"
@@ -42,6 +45,18 @@ export default {
     props: {
         modal: {
             type: Object
+        },
+        loginUser: {
+            type: Object
+        }
+    },
+    methods: {
+        del: function () {
+            axios.post('/books/delete', {
+                id: this.modal.id
+            }).then(res => {
+                this.$emit('showEvent')
+            });
         }
     }
 }
