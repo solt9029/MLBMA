@@ -1,9 +1,7 @@
 <template>
     <tr>
         <td class="user-handle">
-            <a target="blank" :href="`http://twitter.com/${book.handle}`">
-                {{book.handle}}
-            </a>
+            <router-link :to="{path: `/${book.user_id}`}">{{book.handle}}</router-link>
         </td>
         <td 
             class="isbn"

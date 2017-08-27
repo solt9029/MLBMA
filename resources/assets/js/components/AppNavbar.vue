@@ -13,9 +13,10 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <a class="btn btn-default navbar-right nav-link" href="/auth/twitter/logout">ログアウト</a>
-                <a class="navbar-brand navbar-right" :href="twitterUrl" target="blank">
-                    <img :src="avatarUrl" class="img-rounded">
-                </a>
+                <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`}">
+                    <img :src="loginUser.avatar" class="img-rounded">
+                </router-link>
+                <!-- <router-link :to="{query: {page: page + 1}}">Next</router-link> -->
                 <form class="navbar-form navbar-right">
                     <input type="text" class="form-control" placeholder="Search">
                 </form>
@@ -27,17 +28,10 @@
 <script>
 export default {
     name: 'app-navbar',
-    data() {
-        return {
-            avatarUrl: null,
-            twitterUrl: 'http://twitter.com'
+    props: {
+        loginUser: {
+            type: Object
         }
-    },
-    created: function () {
-        axios.post('/users/loginInfo').then(res => {
-            this.avatarUrl = res.data.avatar
-            this.twitterUrl = `http://twitter.com/${res.data.handle}`
-        })
     }
 }
 </script>

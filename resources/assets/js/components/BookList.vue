@@ -1,6 +1,6 @@
 <template>
     <div>
-        <app-navbar></app-navbar>
+        <app-navbar :loginUser="loginUser"></app-navbar>
         <div class="container">
             <register-input @showEvent="show"></register-input>
             <table class="table table-striped table-responsive table-bordered">
