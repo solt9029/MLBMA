@@ -1,6 +1,6 @@
 <template>
     <tr>
-        <td class="user-handle">
+        <td class="user-handle" v-if="!this.$route.params.id">
             <router-link :to="{path: `/${book.user_id}`}">{{book.handle}}</router-link>
         </td>
         <td 

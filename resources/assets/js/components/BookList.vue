@@ -2,10 +2,10 @@
     <div>
         <app-navbar :loginUser="loginUser"></app-navbar>
         <div class="container">
-            <register-input @showEvent="show"></register-input>
+            <register-input @showEvent="show" v-if="!this.$route.params.id"></register-input>
             <table class="table table-striped table-responsive table-bordered">
                 <tr>
-                    <th class="user-handle">ユーザ</th>
+                    <th class="user-handle" v-if="!this.$route.params.id">ユーザ</th>
                     <th class="isbn">ISBN</th>
                     <th class="name">書籍名</th>
                     <th class="state">状態（中野図書館）</th>
