@@ -40,6 +40,7 @@ import RegisterInput from './RegisterInput'
 import AppNavbar from './AppNavbar'
 import AppFooter from './AppFooter'
 import DetailModal from './DetailModal'
+import AppUserHeader from './AppUserHeader'
 export default {
     name: 'book-list',
     components: {
@@ -48,7 +49,8 @@ export default {
         RegisterInput,
         AppNavbar,
         AppFooter,
-        DetailModal
+        DetailModal,
+        AppUserHeader
     },
     data() {
         return {
