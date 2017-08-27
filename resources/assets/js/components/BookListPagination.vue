@@ -1,8 +1,9 @@
 <template>
     <div id="pagination">
         <ul class="pagination">
-            <li v-if="page > 1"><router-link :to="{query: {page: page - 1}}">Prev</router-link></li>
-            <li v-if="page < lastPage"><router-link :to="{query: {page: page + 1}}">Next</router-link></li>
+            <li><router-link :to="{query: {page: 1}}">«</router-link></li>
+            <li :class="{active: n === page}" v-for="n in lastPage"><router-link :to="{query: {page: n}}">{{n}}</router-link></li>
+            <li><router-link :to="{query: {page: lastPage}}">»</router-link></li>
         </ul>
     </div>
 </template>
@@ -22,4 +23,7 @@ export default {
 </script>
 
 <style>
+#pagination {
+    text-align:center;
+}
 </style>
