@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Book;
 use Auth;
+use DB;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -101,11 +102,21 @@ class BooksController extends Controller
     {
         $page_num = 10;//ページネーションの数
 
-        $books = Book::paginate($page_num);
+        $books = DB::table('books')
+            ->orderBy('created_at', 'desc')
+            ->join('users', 'books.user_id', '=', 'users.id')
+            ->select('books.*', 'users.handle')
+            ->paginate($page_num);
 
         if ($request->input('yours')) {
             $user_id = Auth::user()->id;
-            $books = Book::where('user_id', $user_id)->paginate($page_num);
+            
+            $books = DB::table('books')
+                ->orderBy('created_at', 'desc')
+                ->join('users', 'books.user_id', '=', 'users.id')
+                ->where('books.user_id', '=', $user_id)
+                ->select('books.*', 'users.handle')
+                ->paginate($page_num);
         }
 
         return $books;
@@ -122,7 +133,8 @@ class BooksController extends Controller
 
     public function test()
     {
-        $book = Book::find(2);
-        return Auth::user()->id;
+        // $book = DB::table('books')->join('users', 'books.user_id', '=', 'users.id')->where()->select('books.*', 'users.handle')->paginate();
+        // return json_encode($book);
+        // return Auth::user()->id;
     }
 }

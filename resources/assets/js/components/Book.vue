@@ -1,8 +1,8 @@
 <template>
     <tr>
         <td class="user-handle">
-            <a target="blank" :href="`http://twitter.com/${userHandle}`">
-                {{userHandle}}
+            <a target="blank" :href="`http://twitter.com/${book.handle}`">
+                {{book.handle}}
             </a>
         </td>
         <td 
@@ -58,13 +58,6 @@ export default {
                 thumbnail: this.book.thumbnail
             })
         }
-    },
-    created: function () {
-        axios.post('/users/info', {
-            id: this.book.user_id
-        }).then(res => {
-            this.userHandle = res.data.handle
-        })
     }
 }
 </script>

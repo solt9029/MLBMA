@@ -8,6 +8,11 @@ class Book extends Model
 {
     protected $fillable=["user_id", "isbn", "name", 'author', 'published', 'description', 'page', 'thumbnail'];
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
     public static function getName($isbn)
     {
         $url = "http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=isbn=" . $isbn;
