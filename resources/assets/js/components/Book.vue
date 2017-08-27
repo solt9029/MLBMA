@@ -11,11 +11,6 @@
         </td>
         <td class="name">{{book.name}}</td>
         <td class="state">{{book.state}}</td>
-        <td class="delete">
-            <button v-if="loginUser.id === book.user_id" @click="del" class="btn btn-warning">
-                削除
-            </button>
-        </td>
     </tr>
 </template>
 
@@ -36,13 +31,13 @@ export default {
         }
     },
     methods: {
-        del: function () {
-            axios.post('/books/delete', {
-                id: this.book.id
-            }).then(res => {
-                this.$emit('showEvent')
-            });
-        },
+        // del: function () {
+        //     axios.post('/books/delete', {
+        //         id: this.book.id
+        //     }).then(res => {
+        //         this.$emit('showEvent')
+        //     });
+        // },
         setModal: function () {
             this.$emit('modalEvent',{
                 isbn: this.book.isbn,

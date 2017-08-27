@@ -9,7 +9,6 @@
                     <th class="isbn">ISBN</th>
                     <th class="name">書籍名</th>
                     <th class="state">状態（中野図書館）</th>
-                    <th class="delete"></th>
                 </tr>
                 <book 
                     v-for="book in books" 
