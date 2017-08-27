@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 footer {
     text-align: center;
     padding: 10px;

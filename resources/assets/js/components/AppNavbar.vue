@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .navbar-brand .img-rounded {
     width: 40px;
     height: 40px;
