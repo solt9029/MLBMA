@@ -27,9 +27,9 @@ class BooksController extends Controller
         $isbn = $request->input('isbn');
         $name = Book::getName($isbn);//名前を取得する
 
-        //名前が取得できなかったらfalse
+        //名前が取得できなかったら
         if(!$name){
-            return false;
+            $name = '【＊＊＊書籍名自動取得不可＊＊＊】';
         }
 
         $info = Book::getInfo($isbn);
