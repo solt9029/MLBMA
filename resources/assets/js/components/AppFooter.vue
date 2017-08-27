@@ -1,6 +1,6 @@
 <template>
     <footer class="container-fluid">
-        <small><a href="http://solt9029.com" class="copyright">Copyright (C) Kenshi Shiode.</a></small>
+        <small><a href="http://solt9029.com" target="blank" class="copyright">Copyright (C) Kenshi Shiode.</a></small>
     </footer>
 </template>
 
