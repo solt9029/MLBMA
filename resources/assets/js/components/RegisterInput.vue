@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="validationIsbn" class="alert alert-danger" role="alert">ISBNは13桁の数字で入力してください</div>
+        <div v-if="validationError" class="alert alert-danger" role="alert">ISBNは13桁の数字で入力してください</div>
         <form @submit.prevent="register" class="input-group">
             <input type="number" v-model="isbn" placeholder="ISBN(13桁)" class="form-control">
             <span class="input-group-btn">
@@ -16,17 +16,17 @@ export default {
     data() {
         return {
            isbn: null,
-           validationIsbn: false
+           validationError: false
         }
     },
     methods: {
         register: function () {
             //isbnの値のバリデーションをしたい
             if (String(this.isbn).length !== 13) {
-                this.validationIsbn = true
+                this.validationError = true
                 return
             }
-            this.validationIsbn = false
+            this.validationError = false
 
             axios.post('/books/register', {
                 isbn: this.isbn
@@ -35,7 +35,7 @@ export default {
                 console.log(res)
                 this.$emit('showEvent')
             }).catch(res => {
-                this.validationIsbn = false
+                this.validationError = false
             })
         }
     }
