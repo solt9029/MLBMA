@@ -1,8 +1,13 @@
 <template>
-    <form @submit.prevent="register">
-        <input type="number" class="form-control" v-model="isbn" placeholder="ISBN（13桁）">
-        <input type="submit" value="書籍を登録する" class="btn btn-primary btn-block top-space-button">
-    </form>
+    <div>
+        <div v-if="validationIsbn" class="alert alert-danger" role="alert">ISBNは13桁の数字で入力してください</div>
+        <form @submit.prevent="register" class="input-group">
+            <input type="number" v-model="isbn" placeholder="ISBN(13桁)" class="form-control">
+            <span class="input-group-btn">
+                <input type="submit" value="登録" class="btn btn-primary">
+            </span>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -10,12 +15,18 @@ export default {
     name: 'register-input',
     data() {
         return {
-           isbn: null
+           isbn: null,
+           validationIsbn: false
         }
     },
     methods: {
         register: function () {
             //isbnの値のバリデーションをしたい
+            if (String(this.isbn).length !== 13) {
+                this.validationIsbn = true
+                return
+            }
+            this.validationIsbn = false
 
             axios.post('/books/register', {
                 isbn: this.isbn
@@ -24,7 +35,7 @@ export default {
                 console.log(res)
                 this.$emit('showEvent')
             }).catch(res => {
-                //this.isbn = null
+                this.validationIsbn = false
             })
         }
     }
@@ -32,7 +43,4 @@ export default {
 </script>
 
 <style scoped>
-.top-space-button {
-    margin-top:10px;
-}
 </style>
