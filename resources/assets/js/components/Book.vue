@@ -31,26 +31,8 @@ export default {
         }
     },
     methods: {
-        // del: function () {
-        //     axios.post('/books/delete', {
-        //         id: this.book.id
-        //     }).then(res => {
-        //         this.$emit('showEvent')
-        //     });
-        // },
         setModal: function () {
-            this.$emit('modalEvent',{
-                isbn: this.book.isbn,
-                name: this.book.name,
-                state: this.book.state,
-                id: this.book.id,
-                author: this.book.author,
-                published: this.book.published,
-                description: this.book.description,
-                page: this.book.page,
-                thumbnail: this.book.thumbnail,
-                user_id: this.book.user_id
-            })
+            this.$emit('modalEvent',this.book)
         }
     }
 }
