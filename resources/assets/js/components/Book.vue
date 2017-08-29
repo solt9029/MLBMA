@@ -3,11 +3,8 @@
         <td class="user-handle" v-if="!this.$route.params.id">
             <router-link :to="{path: `/${book.user_id}`}">{{book.handle}}</router-link>
         </td>
-        <td 
-            class="isbn"
-            data-toggle="modal"
-            data-target="#modal">
-            <a @click="setModal">{{book.isbn}}</a>
+        <td class="isbn">
+            <a @click="setModal" data-toggle="modal" data-target="#modal">{{book.isbn}}</a>
         </td>
         <td class="name">{{book.name}}</td>
         <td class="state">{{book.state}}</td>
