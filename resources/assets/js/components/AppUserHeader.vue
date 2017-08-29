@@ -1,10 +1,17 @@
 <template>
     <header class="jumbotron">
         <div class="container">
-            <h1 class="handle">{{paramUser.handle}}</h1>
-            <a target="blank" :href="`http://twitter.com/${paramUser.handle}`">
-                http://twitter.com/{{paramUser.handle}}
-            </a>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img :src="paramUser.avatar" class="img-responsive">
+                </div>
+                <div class="col-sm-9">
+                    <h1 class="handle">{{paramUser.handle}}</h1>
+                    <a target="blank" :href="`http://twitter.com/${paramUser.handle}`">
+                        http://twitter.com/{{paramUser.handle}}
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 </template>
@@ -34,5 +41,12 @@ header.jumbotron {
 .handle {
     font-family: 'Baloo Bhaijaan', cursive;
     font-size: 100px;
+}
+.img-responsive {
+    display: block;
+    height: auto;
+    margin: auto;
+    max-width: 80%;
+    border-radius: 50%;
 }
 </style>
