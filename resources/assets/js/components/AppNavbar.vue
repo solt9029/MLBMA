@@ -8,6 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand logo" href="/"></a>
                 <a class="navbar-brand" href="/">MLBMA</a>
             </div>
 
@@ -64,5 +65,11 @@ export default {
 }
 .nav-link {
     margin-top: 8px;
+}
+.logo{
+  background: url("/img/logo.png") no-repeat center center;
+  background-size: contain;
+  height: 50px;
+  width: 50px;
 }
 </style>
