@@ -13,7 +13,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <a class="btn btn-default navbar-right nav-link" href="/auth/twitter/logout">ログアウト</a>
+                <a class="btn btn-warning navbar-right nav-link" href="/auth/twitter/logout">ログアウト</a>
                 <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`}">
                     <img :src="loginUser.avatar" class="img-rounded">
                 </router-link>
@@ -56,6 +56,10 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
+nav {
+    background-color: #fff;
+}
 .navbar-brand .img-rounded {
     width: 40px;
     height: 40px;
@@ -65,6 +69,10 @@ export default {
 }
 .nav-link {
     margin-top: 8px;
+}
+.navbar-brand {
+    font-family: 'Baloo Bhaijaan', cursive;
+    font-size: 30px;
 }
 .logo{
   background: url("/img/logo.png") no-repeat center center;
