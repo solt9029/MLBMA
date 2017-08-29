@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="body">
         <app-navbar :loginUser="loginUser"></app-navbar>
         <app-user-header :paramUser="paramUser" v-if="this.$route.params.id"></app-user-header>
         <div class="container">
@@ -145,5 +145,8 @@ table tr {
 }
 table tr .name {
     width:65%;
+}
+.body {
+    background-color: #fbfbf5;
 }
 </style>

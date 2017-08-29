@@ -14,9 +14,9 @@ export default {
 footer {
     text-align: center;
     padding: 10px;
-    background: #444;
+    background:linear-gradient(45deg,rgba(240,240,100,0.9), rgba(180,170,100, 0.9));
 }
 .copyright{
-    color:#fff;
+    color:#000;
 }
 </style>
