@@ -23,10 +23,11 @@ LaravelとVueで大学図書館の本の貸出状況を確認することがで�
 ## 手順
 
 ```
-cd VueMLBMA
+cd MLBMA
 composer install
 npm install
 cp .env.example .env
+php artisan key:generate
 ```
 
 .envを編集します  
@@ -34,9 +35,9 @@ cp .env.example .env
 docker-compose.ymlなどを変更する場合にはDBの設定なども見直してください
 
 ```
-cd docker.vuemlbma
+cd docker.mlbma
 docker-compose up -d
-docker exec -it dockervuemlbma_web_1
+docker exec -it dockermlbma_web_1
 cd /var/www/html
 php artisan migrate
 ```
