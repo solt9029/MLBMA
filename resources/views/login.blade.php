@@ -39,7 +39,7 @@ body {
 h1 {
     font-size: 100px;
 }
-section {
+.section {
     display: table-cell;
     vertical-align: middle;
 }
@@ -52,14 +52,14 @@ section {
     </style>
 </head>
 <body>
-    <section>
+    <div id="app" class="section">
         <h1>MLBMA</h1>
         <div class="description">
             <p>Meiji Library Books Management Application.</p>
             <p>明治大学図書館（中野キャンパス）の書籍の貸出状況を確認できる書籍管理アプリケーション。</p>
         </div>
         <a href="/auth/twitter" class="btn">Twitterでログイン</a>
-    </section>
+    </div>
     <script src="/js/app.js"></script>
 </body>
 </html>
