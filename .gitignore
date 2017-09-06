@@ -9,7 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
-/public/css
-/public/js
-/public/fonts
+/public/css/app.css
+/public/js/app.js
+/public/fonts/vendor
 /.vscode
