@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="app" class="section">
-        <h1>MLBMA</h1>
+        <h1 class="title">MLBMA</h1>
         <div class="description">
             <p>Meiji Library Books Management Application.</p>
             <p>明治大学図書館（中野キャンパス）の書籍の貸出状況を確認できる書籍管理アプリケーション。</p>
