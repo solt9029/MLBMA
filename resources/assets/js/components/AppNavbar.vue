@@ -13,7 +13,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" v-if="!loginUser">
-                 <a class="btn btn-warning navbar-right nav-link" href="/auth/twitter">ログイン</a>
+                 <a class="btn btn-info navbar-right nav-link" href="/auth/twitter">Twitterでログイン</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" v-if="loginUser">
