@@ -46,6 +46,8 @@ section {
 .description {
     margin-top: 50px;
     font-size: 20px;
+    margin-right: 50px;
+    margin-left:50px;
 }
     </style>
 </head>
