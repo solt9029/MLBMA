@@ -12,10 +12,6 @@
                 <a class="navbar-brand" href="/">MLBMA</a>
             </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" v-if="!loginUser">
-                 <a class="btn btn-info navbar-right nav-link" href="/auth/twitter">Twitterでログイン</a>
-            </div>
-
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" v-if="loginUser">
                 <a class="btn btn-warning navbar-right nav-link" href="/auth/twitter/logout">ログアウト</a>
                 <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`}">

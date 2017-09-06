@@ -16,7 +16,6 @@ const router = new VueRouter({
     mode: 'history',
     routes: [
         {path: '/', component: require('./components/BookList.vue')},
-        {path: '/login', component: require('./components/LoginPage.vue')},
         {path: '/:id', component: require('./components/BookList.vue')},
         // ここに404のページを投入したい
     ]
