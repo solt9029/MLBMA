@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
 html {
     height: 100%;
 }
@@ -28,7 +29,8 @@ body {
     text-align: center;
 }
 .title {
-    font-size: 100px;
+    font-family: 'Baloo Bhaijaan', cursive;
+    font-size: 120px;
 }
 .section {
     display: table-cell;
