@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="app">
-        <a href="/auth/twitter" role="button">Login with Twitter</a>
+        <router-view></router-view>
     </div>
     <script src="/js/app.js"></script>
 </body>
