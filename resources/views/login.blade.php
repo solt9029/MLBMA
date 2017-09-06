@@ -12,19 +12,12 @@ html {
     height: 100%;
 }
 body {
-    /* 画像ファイルの指定 */
     background:linear-gradient(45deg,rgba(100,100,30,0.7), rgba(80,80,20, 0.7)), url(http://uru-lab.com/wp-content/uploads/2015/02/%E6%9C%AC.png);
-    /* 画像を常に天地左右の中央に配置 */
     background-position: center center;
-    /* 画像をタイル状に繰り返し表示しない */
     background-repeat: no-repeat;
-    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
     background-attachment: fixed;
-    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
     background-size: cover;
-    /* 背景画像が読み込まれる前に表示される背景のカラー */
     background-color: #464646;
-
     text-align: center;
     color: #fff;
     width: 100%;
@@ -32,22 +25,38 @@ body {
     display: table;
 }
 .btn{
-    width:180px;
-    margin:15px;
+    font-size: 24px;
+    width:300px;
+    margin-top:50px;
+    border: 1px solid #cafaea;
+    color: #cafaea;
+    border-radius: 3px;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+    text-align: center;
 }
 h1 {
-    font-size: 70px;
+    font-size: 100px;
 }
 section {
     display: table-cell;
     vertical-align: middle;
+}
+.description {
+    margin-top: 50px;
+    font-size: 20px;
 }
     </style>
 </head>
 <body>
     <section>
         <h1>MLBMA</h1>
-        <a href="/auth/twitter" class="btn btn-info btn-lg">Twitterでログイン</a>
+        <div class="description">
+            <p>Meiji Library Books Management Application.</p>
+            <p>明治大学図書館（中野キャンパス）の書籍の貸出状況を確認できる書籍管理アプリケーション。</p>
+        </div>
+        <a href="/auth/twitter" class="btn">Twitterでログイン</a>
     </section>
     <script src="/js/app.js"></script>
 </body>
