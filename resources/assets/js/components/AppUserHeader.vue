@@ -28,7 +28,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
 header.jumbotron {
 /*    background: url("img/header.png");
     background-position: center center;*/

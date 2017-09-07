@@ -57,7 +57,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan');
 nav {
     background-color: #fff;
 }
