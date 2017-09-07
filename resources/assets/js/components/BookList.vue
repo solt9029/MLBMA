@@ -1,7 +1,7 @@
 <template>
     <div class="body">
         <app-navbar :loginUser="loginUser"></app-navbar>
-        <app-user-header :paramUser="paramUser" v-if="this.$route.params.id"></app-user-header>
+        <user-header :paramUser="paramUser" v-if="this.$route.params.id"></user-header>
         <div class="container">
             <register-input @showEvent="show" v-if="!this.$route.params.id"></register-input>
             <table class="table table-striped table-responsive table-bordered">
@@ -40,7 +40,7 @@ import RegisterInput from './RegisterInput'
 import AppNavbar from './AppNavbar'
 import AppFooter from './AppFooter'
 import DetailModal from './DetailModal'
-import AppUserHeader from './AppUserHeader'
+import UserHeader from './UserHeader'
 export default {
     name: 'book-list',
     components: {
@@ -50,7 +50,7 @@ export default {
         AppNavbar,
         AppFooter,
         DetailModal,
-        AppUserHeader
+        UserHeader
     },
     data() {
         return {

@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    name: 'app-user-header',
+    name: 'user-header',
     props: {
         paramUser: {
             type: Object
