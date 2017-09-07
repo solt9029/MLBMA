@@ -4,6 +4,7 @@
         <user-header :paramUser="paramUser" v-if="this.$route.params.id"></user-header>
         <div class="container">
             <register-input @showEvent="show" v-if="!this.$route.params.id"></register-input>
+            <div id="scanner-container"></div>
             <table class="table table-striped table-responsive table-bordered">
                 <tr>
                     <th class="user-handle" v-if="!this.$route.params.id">ユーザ名</th>
@@ -42,6 +43,9 @@ import AppFooter from './AppFooter'
 import DetailModal from './DetailModal'
 import UserHeader from './UserHeader'
 import Quagga from 'quagga'
+
+
+
 export default {
     name: 'book-list',
     components: {
