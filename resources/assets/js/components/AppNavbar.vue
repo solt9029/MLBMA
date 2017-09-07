@@ -79,9 +79,9 @@ nav {
     font-size: 30px;
 }
 .logo{
-  background: url("/img/logo.png") no-repeat center center;
-  background-size: contain;
-  height: 50px;
-  width: 50px;
+    background: url("/img/logo.png") no-repeat center center;
+    background-size: contain;
+    height: 50px;
+    width: 50px;
 }
 </style>
