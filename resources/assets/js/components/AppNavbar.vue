@@ -4,7 +4,7 @@
             <div class="navbar-header">
                 <toggle-navigation data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></toggle-navigation>
                 <logo></logo>
-                <a class="navbar-brand" href="/">MLBMA</a>
+                <brand-title></brand-title>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" v-if="loginUser">
@@ -24,12 +24,14 @@
 <script>
 import ToggleNavigation from './ToggleNavigation'
 import Logo from './Logo'
+import BrandTitle from './BrandTitle'
 
 export default {
     name: 'app-navbar',
     components: {
         ToggleNavigation,
-        Logo
+        Logo,
+        BrandTitle
     },
     props: {
         loginUser: {
