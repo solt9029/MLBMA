@@ -41,6 +41,7 @@ import AppNavbar from './AppNavbar'
 import AppFooter from './AppFooter'
 import DetailModal from './DetailModal'
 import UserHeader from './UserHeader'
+import Quagga from 'quagga'
 export default {
     name: 'book-list',
     components: {
