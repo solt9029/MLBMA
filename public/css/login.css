@@ -28,6 +28,9 @@ body {
     text-decoration: none;
     text-align: center;
 }
+a:hover {
+    background-color: #cafaea;
+}
 .title {
     font-family: 'Baloo Bhaijaan', cursive;
     font-size: 120px;
