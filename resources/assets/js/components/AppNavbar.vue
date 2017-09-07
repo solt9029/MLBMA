@@ -7,7 +7,7 @@
                 <brand-title></brand-title>
             </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" v-if="loginUser">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <a class="btn btn-warning navbar-right nav-link" href="/auth/twitter/logout">ログアウト</a>
                 <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`}">
                     <img :src="loginUser.avatar" class="img-rounded">
