@@ -8,7 +8,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <a class="btn btn-warning navbar-right nav-link" href="/auth/twitter/logout">ログアウト</a>
+                <a class="btn btn-warning navbar-right nav-btn" href="/auth/twitter/logout">ログアウト</a>
                 <router-link class="navbar-brand navbar-right" :to="{path: `/${loginUser.id}`}">
                     <img :src="loginUser.avatar" class="img-rounded">
                 </router-link>
@@ -71,7 +71,7 @@ nav {
     border-radius: 50%;
     border: solid 1px #ddd;
 }
-.nav-link {
+.nav-btn {
     margin-top: 8px;
 }
 </style>
