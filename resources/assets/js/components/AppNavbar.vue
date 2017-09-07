@@ -74,14 +74,4 @@ nav {
 .nav-link {
     margin-top: 8px;
 }
-.navbar-brand {
-    font-family: 'Baloo Bhaijaan', cursive;
-    font-size: 30px;
-}
-.logo{
-    background: url("/img/logo.png") no-repeat center center;
-    background-size: contain;
-    height: 50px;
-    width: 50px;
-}
 </style>
