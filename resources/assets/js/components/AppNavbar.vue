@@ -2,12 +2,7 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                <toggle-navigation data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></toggle-navigation>
                 <a class="navbar-brand logo" href="/"></a>
                 <a class="navbar-brand" href="/">MLBMA</a>
             </div>
@@ -27,8 +22,13 @@
 </template>
 
 <script>
+import ToggleNavigation from './ToggleNavigation'
+
 export default {
     name: 'app-navbar',
+    components: {
+        ToggleNavigation
+    },
     props: {
         loginUser: {
             type: Object
