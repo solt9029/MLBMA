@@ -56,7 +56,8 @@ export default {
                 id: this.modal.id
             }).then(res => {
                 this.$emit('showEvent')
-            });
+                $('#modal').modal('hide')
+            })
         }
     }
 }
