@@ -4,7 +4,9 @@
         <user-header :paramUser="paramUser" v-if="this.$route.params.id"></user-header>
         <div class="container">
             <register-input @showEvent="show" v-if="!this.$route.params.id"></register-input>
-            <div id="scanner-container"></div>
+
+            <button data-toggle="modal" data-target="#quaggaModal" class="btn btn-info btn-block top-margin-btn">バーコードからISBNを読み取る</button>
+
             <table class="table table-striped table-responsive table-bordered">
                 <tr>
                     <th class="user-handle" v-if="!this.$route.params.id">ユーザ名</th>
@@ -25,6 +27,8 @@
             <detail-modal :modal="modal" :loginUser="loginUser" @showEvent="show">
             </detail-modal>
 
+            <quagga-modal></quagga-modal>
+
             <book-list-pagination  
                 :lastPage="lastPage">
             </book-list-pagination>
@@ -42,9 +46,7 @@ import AppNavbar from './AppNavbar'
 import AppFooter from './AppFooter'
 import DetailModal from './DetailModal'
 import UserHeader from './UserHeader'
-import Quagga from 'quagga'
-
-
+import QuaggaModal from './QuaggaModal'
 
 export default {
     name: 'book-list',
@@ -55,7 +57,8 @@ export default {
         AppNavbar,
         AppFooter,
         DetailModal,
-        UserHeader
+        UserHeader,
+        QuaggaModal
     },
     data() {
         return {
@@ -153,5 +156,8 @@ table tr .name {
 }
 .body {
     background-color: #fbfbf5;
+}
+.top-margin-btn {
+    margin-top: 10px;
 }
 </style>
