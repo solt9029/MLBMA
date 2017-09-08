@@ -21,6 +21,9 @@ export default {
            serverError: false
         }
     },
+    created() {
+        this.$on('receiveBarcode', this.receiveBarcode)
+    },
     methods: {
         register: function () {
             //isbnの値のバリデーションをしたい
@@ -40,6 +43,9 @@ export default {
             }).catch(res => {
                 this.serverError = true
             })
+        },
+        receiveBarcode: function (barcode) {
+            this.isbn = barcode
         }
     }
 }

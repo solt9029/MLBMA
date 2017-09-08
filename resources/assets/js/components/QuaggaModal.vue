@@ -23,6 +23,7 @@ export default {
     name: 'quagga-modal',
     methods: {
         init: function () {
+            const self = this
             Quagga.init({
                 inputStream: {
                     name: "Live",
@@ -84,7 +85,7 @@ export default {
             })
 
             Quagga.onDetected(function (result) {
-                console.log(result.codeResult.code)
+                self.$emit('giveBarcode', result.codeResult.code)
                 $('#quaggaModal').modal('hide')
             })
         }

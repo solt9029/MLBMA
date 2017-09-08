@@ -3,9 +3,9 @@
         <app-navbar :loginUser="loginUser"></app-navbar>
         <user-header :paramUser="paramUser" v-if="this.$route.params.id"></user-header>
         <div class="container">
-            <register-input @showEvent="show" v-if="!this.$route.params.id"></register-input>
+            <register-input ref="registerInput" @showEvent="show" v-if="!this.$route.params.id"></register-input>
 
-            <button data-toggle="modal" data-target="#quaggaModal" class="btn btn-info btn-block top-margin-btn">バーコードからISBNを読み取る</button>
+            <button @giveBarcode="giveBarcode" data-toggle="modal" data-target="#quaggaModal" class="btn btn-info btn-block top-margin-btn">バーコードからISBNを読み取る</button>
 
             <table class="table table-striped table-responsive table-bordered">
                 <tr>
@@ -27,7 +27,7 @@
             <detail-modal :modal="modal" :loginUser="loginUser" @showEvent="show">
             </detail-modal>
 
-            <quagga-modal></quagga-modal>
+            <quagga-modal @giveBarcode="giveBarcode"></quagga-modal>
 
             <book-list-pagination  
                 :lastPage="lastPage">
@@ -126,6 +126,9 @@ export default {
             }).then(res => {
                 this.paramUser = res.data
             })
+        },
+        giveBarcode: function (barcode) {
+            this.$refs.registerInput.$emit('receiveBarcode', barcode)
         }
     },
     created: function () {
