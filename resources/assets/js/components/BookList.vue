@@ -5,7 +5,9 @@
         <div class="container">
             <register-input ref="registerInput" @showEvent="show" v-if="!this.$route.params.id"></register-input>
 
-            <button @giveBarcode="giveBarcode" data-toggle="modal" data-target="#quaggaModal" class="btn btn-info btn-block top-margin-btn">バーコードからISBNを読み取る</button>
+            <button @giveBarcode="giveBarcode" data-toggle="modal" data-target="#quaggaModal" class="btn btn-info btn-block top-margin-btn">
+                バーコードからISBNを読み取る(Chromeでは動かないと思います)
+            </button>
 
             <table class="table table-striped table-responsive table-bordered">
                 <tr>
