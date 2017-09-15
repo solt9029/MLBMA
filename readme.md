@@ -37,9 +37,12 @@ docker-compose.ymlなどを変更する場合にはDBの設定なども見直し
 ```
 cd docker.mlbma
 docker-compose up -d
-docker exec -it dockermlbma_web_1
+docker exec -it dockermlbma_web_1 bash
 cd /var/www/html
 php artisan migrate
+exit
+cd ../
+npm run watch
 ```
 
 これで準備完了です  
